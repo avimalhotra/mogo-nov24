@@ -16,6 +16,7 @@ button{ padding: 0; cursor: pointer;}
     --ff: "Montserrat", sans-serif;
     --rob: roboto, sans-serif;
     --kus: "Kaushan Script", cursive;
+    --grad: linear-gradient(#f38181e6,#fce38ae6);
 }
 
 .kus{ font-family: var(--kus);}
@@ -44,6 +45,7 @@ body{
 .col-4{ flex-basis: 33.33%; max-width: 33.33%; }
 .col-6{ flex-basis: 50%; max-width: 50%; }
 .col-8{ flex-basis: 66.66%; max-width: 66.66%; }
+.col-9{ flex-basis: 75%; max-width: 75%; }
 .flex{ display: flex;}
 .justify-content-space-between{ justify-content: space-between; }
 .justify-content-center{ justify-content: center; }
@@ -71,21 +73,43 @@ header{ padding-block: 2rem;}
 .banner a{ display: inline-block; width: 160px; border: 3px solid; color: inherit; line-height: 34px; font-size: 14px; }
 .pager{ margin-top: 155px; text-align: left;}
 .progress{ height: 3px; background: #fff; margin-bottom: 25px; position: relative;}
-.progress p{ font-size: 18px;}
-.progress p b{ font-size: 24px;}
+.pager-text{ font-size: 18px;}
+.pager-text b{ font-size: 24px;}
 .progress.active::before{ content: '';  position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: #f38181; animation: prog 5s linear 1; }
-@keyframes prog {
-    0%{ width: 0; }
-    100%{ width: 100%; }
-}
+.progress.active::before{ content: '';  position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: #f38181; animation: prog 5s linear 1; }
+@keyframes prog {0%{ width: 0;}100%{ width: 100%;}}
+
+
+.wrap-2{ padding: 90px 0; text-align: center; }
+section .kus{ font-size: 24px;}
+section h2{ font-size: 30px;}
+p{ font: 15px/24px var(--rob); color: #999;}
+.story{ margin-top: 90px; position: relative; }
+.over{ position: absolute; inset: 0; background: var(--grad); color: #fff; opacity: 0; visibility: hidden; transition: 0.4s; }
+.over .grid{ display: grid; place-items: center; height: 100%;}
+.over .grid b{ display: block;}
+.story:hover .over{ opacity: 1; visibility: visible; transform: translate(-10px, -10px); box-shadow: 10px 10px #95e1d3; }
 
 
 
 
+.wrap-3{ background: #95e1d3; text-align: center; color: #fff; padding: 40px 0; }
+.facts{ margin: 40px 0;}
+.facts b{ font-size: 72px;}
+.facts small{ display: block; font-size: 14px;}
 
 
 
+.wrap-4{ padding: 90px 0; text-align: center; }
+.grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px 0; background: #e5e5e5;}
+.services{ background: #fff; padding: 3rem 1rem;}
+.services-text{ text-align: left; }
+.services-text h3{ font-size: 14px; color: #333;}
 
+
+
+.wrap-5{ padding: 90px 0 0 0; text-align: center; background: url(../img/bg2.webp) no-repeat center top/cover;  }
+.iphone{ transform: translate(-86px, 56px); }
 
 /* resp */
 @media screen and (max-width:1220px){
@@ -97,6 +121,7 @@ header{ padding-block: 2rem;}
     .col-t-12{flex-basis: 100%; max-width: 100%; }
     .wrap-1 li{ margin-inline: 1rem}
     .banner h2{ font-size: 8rem; letter-spacing: -5px;}
+    .grid{ grid-template-columns: repeat(2, 1fr);}
 }
 
 @media screen and (max-width:767px){
@@ -105,10 +130,14 @@ header{ padding-block: 2rem;}
     .collapse{ display: none;}
     .banner{ padding-top: 30px;}
     .pager{ margin-top: 50px;}
+    .ipad{ width: 50%; height: auto; }
+    .iphone{ width: 25%; height: auto; }
 }
 @media screen and (max-width:460px){
     .col-p-6{ flex-basis: 50%; max-width: 50%; }
     .col-p-12{flex-basis: 100%; max-width: 100%; }
     .banner .kus{ font-size: 40px;}
     .banner h2{ font-size: 5rem; letter-spacing: -3px}
+    .grid{ grid-template-columns: repeat(1, 1fr);}
+    .iphone{ transform: translate(-20px, 56px); }
 }
